@@ -1,37 +1,27 @@
 import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, TextInput, View, StyleSheet, Image } from 'react-native';
 import MapView from 'react-native-maps';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { BreadProvider, Button } from 'material-bread'
-import { Formik } from 'formik'
+import { BreadProvider, Button } from 'material-bread';
+
 
 function DetailsScreen() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Details!</Text>
+      <Image style={{width: 300, height:200}} source={require('./assets/unsplash.jpg')} />
     </View>
   );
 }
+
 
 function HomeScreen({ navigation }) {
   return (
     <View style={ styles.container }>
         <Button
-          text="Go to Details"
-          type='contained'
-          color={'#009688'}
-          onPress={() => navigation.navigate('Details')}
-        />
-        <Button
-          text="Go to Details"
-          type='contained'
-          color={'#009688'}
-          onPress={() => navigation.navigate('Details')}
-        />
-        <Button
-          text="Go to Details"
+          text="Places"
           type='contained'
           color={'#009688'}
           onPress={() => navigation.navigate('Details')}
@@ -84,6 +74,7 @@ function SettingsStackScreen() {
     <SettingsStack.Navigator>
       <SettingsStack.Screen name="Settings" component={SettingsScreen} />
       <SettingsStack.Screen name="Details" component={DetailsScreen} />
+      <SettingsStack.Screen name="Form" component={DetailsScreen} />
     </SettingsStack.Navigator>
   );
 }
